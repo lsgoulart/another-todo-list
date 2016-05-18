@@ -4,14 +4,14 @@
   "description": "How annoying is TODO lists apps? Yeah, I know. And this is just another of them.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js --ignore components"
+    "serve": "nodemon server/server.js --ignore components"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kweiberth/react-todo-list.git"
+    "url": "https://github.com/lsgoulart/another-todo-list.git"
   },
-  "author": "Leonard Goulart",
-  "license": "ISC",
+  "author": "Leonardo Goulart",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.2",
