@@ -14,14 +14,10 @@ if (env !== 'production') {
 
     app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
     app.use(webpackHotMiddleware(compiler));
-
-    process.env.PWD = process.cwd();
-    app.use(express.static(process.env.PWD + '/dist'));
-} else {
-    app.use(express.static(path.join(__dirname, './dist')));
 }
 
-
+process.env.PWD = process.cwd();
+app.use(express.static(process.env.PWD + '/public'));
 
 app.use('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/index.html'));
