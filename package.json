@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server/server.js --ignore components",
+    "build": "webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node ./server/server.js"
   },
   "repository": {
