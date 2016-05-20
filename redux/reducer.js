@@ -15,6 +15,19 @@ export default function reducer(state, action) {
                 }, ...state.todos]
             });
             break;
+        case 'TOGGLE_COMPLETE_TODO':
+            return Object.assign({}, state, {
+                todos: state.todos.map((todo) => {
+                    return (todo._id === action._id) ? Object.assign({}, todo, {completed: !todo.completed}) : todo
+                })
+            });
+            break;
+        case 'SET_PRIORITY_TODO':
+
+            break;
+        case 'REMOVE_TODO':
+
+            break;
         default:
             return state;
     }

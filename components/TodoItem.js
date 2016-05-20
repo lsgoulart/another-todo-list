@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import actions from '../redux/actions';
 
 export default class TodoItem extends Component {
-    _setPriority(taskId, priority) {
+    _setPriority(_id, priority) {
 
     }
 
-    _removeTask(id) {
-
+    _removeTodo(_id) {
     }
 
-    _toggleComplete(taskId) {
-
+    _toggleComplete(_id) {
+        this.props.dispatch(actions.toggleCompleteTodo(_id));
     }
 
     _getPriorityColorTriangle(priority) {
@@ -82,12 +82,12 @@ export default class TodoItem extends Component {
                         <div className="triangle" style={{ borderColor: this._getPriorityColorTriangle(todo.priority) }}></div>
                     </div>
                 </div>
-                <div className="complete" onClick={this._toggleComplete.bind(this, todo._id)}>
+                <div className="complete" onClick={ this._toggleComplete.bind(this, todo._id) }>
                     <i className="fa fa-check" style={{ color: (todo.completed) ? '#81e808' : '#5a5a58' }}></i>
                 </div>
-                <span>{todo.text}</span>
+                <span style={{ textDecoration: (todo.completed) ? 'line-through' : 'none', opacity: (todo.completed) ? .5 : 1}} >{todo.text}</span>
                 <div className="pull-right">
-                    <div className="remove" onClick={this._removeTask.bind(this, todo._id)}>
+                    <div className="remove" onClick={ this._removeTodo.bind(this, todo._id) }>
                         <i className="fa fa-close"></i>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ class TodoList extends Component {
         return (
             <ul className="todo-list task-list">
             {
-                this.props.todos.map( (todo) => <TodoItem key={ todo._id } todo={ todo } /> )
+                this.props.todos.map( (todo) => <TodoItem dispatch={ this.props.dispatch } key={ todo._id } todo={ todo } /> )
             }
             </ul>
         )
