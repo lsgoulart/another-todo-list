@@ -3,8 +3,9 @@ var path = require('path');
 
 var app = express();
 
-if (process.env.NODE_ENV !== 'production') {
+var env = process.env.NODE_ENV || 'development';
 
+if (env !== 'production') {
     var config = require('../webpack.config.js');
     var webpack = require('webpack');
     var webpackDevMiddleware = require('webpack-dev-middleware');
@@ -13,9 +14,14 @@ if (process.env.NODE_ENV !== 'production') {
 
     app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
     app.use(webpackHotMiddleware(compiler));
+
+    app.use(express.static(path.join(__dirname, './dist')));
+} else {
+    process.env.PWD = process.cwd();
+    app.use(express.static(process.env.PWD + '/dist'));
 }
 
-app.use(express.static(path.join(__dirname, './dist')));
+
 
 app.use('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/index.html'));
