@@ -10,12 +10,18 @@ Here is the great video series from Kurt Weiberth that I used as reference:
 _Thank's bro! Cheers_ :beers:
 
 
-To run this magnific app you need to clone this repo with:
+See the online demo here: [https://another-todo-list.herokuapp.com/](https://another-todo-list.herokuapp.com/)
+
+
+or
+
+
+Just clone this repo with:
 
 `git clone https://github.com/lsgoulart/another-todo-list.git`
 
 
-Install all dependencies with:
+Install all the dependencies with:
 
 `npm install`
 
