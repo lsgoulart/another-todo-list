@@ -15,8 +15,8 @@
   "author": "Leonardo Goulart",
   "license": "MIT",
   "engines": {
-       "node": "0.10.11",
-       "npm": "1.2.25"
+       "node": "6.1.0",
+       "npm": "3.8.6"
    },
   "dependencies": {
     "babel-core": "^6.4.5",
