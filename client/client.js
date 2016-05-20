@@ -7,9 +7,11 @@ import { Provider } from 'react-redux';
 let initialState = {
     todos: [
         {
-            id: 0,
+            _id: 0,
             text: 'First TODO added! Yey',
-            completed: false
+            completed: false,
+            priority: 0,
+            created_at: Date.now(),
         }
     ]
 };

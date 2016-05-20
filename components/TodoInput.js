@@ -17,16 +17,19 @@ class TodoInput extends Component {
         });
     }
 
-    handleSubmit() {
+    handleSubmit(event) {
         event.preventDefault();
         this.props.dispatch(actions.addTodo(this.state.inputText));
+        this.setState({ inputText: '' });
     }
 
     render() {
         return (
             <div className="todo-input">
-                <input type="text" value={ this.state.inputText } onChange={this.handleChange.bind(this)} placeholder="Add TODO here..." />
-                <button onClick={ this.handleSubmit.bind(this) }>Submit</button>
+                <form onSubmit={ this.handleSubmit.bind(this) }>
+                    <input type="text" value={ this.state.inputText } onChange={this.handleChange.bind(this)} placeholder="Add TODO here..." />
+                    <button>Submit</button>
+                </form>
             </div>
         )
     }

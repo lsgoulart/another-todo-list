@@ -7,5 +7,5 @@ let finalCreateStore = compose(
 )(createStore);
 
 export default function configureStore(initialState = { todos: [] }) {
-    return finalCreateStore(reducer, initialState);
+    return finalCreateStore(reducer, initialState, window.devToolsExtension ? window.devToolsExtension() : undefined);
 }
