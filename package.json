@@ -4,7 +4,8 @@
   "description": "How annoying is TODO lists apps? Yeah, I know. And this is just another of them.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon server/server.js --ignore components"
+    "serve": "nodemon server/server.js --ignore components",
+    "start": "node ./server/server.js"
   },
   "repository": {
     "type": "git",
