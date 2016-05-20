@@ -15,10 +15,10 @@ if (env !== 'production') {
     app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
     app.use(webpackHotMiddleware(compiler));
 
-    app.use(express.static(path.join(__dirname, './dist')));
-} else {
     process.env.PWD = process.cwd();
     app.use(express.static(process.env.PWD + '/dist'));
+} else {
+    app.use(express.static(path.join(__dirname, './dist')));
 }
 
 
