@@ -19,11 +19,10 @@ app.use('/', function (req, res) {
     res.sendFile(path.resolve('client/index.html'));
 });
 
-
 app.use(express.static('./dist'));
 var port = 3000;
 
-app.listen(port, function(error) {
+app.listen(process.env.PORT || port, function(error) {
   if (error) throw error;
-  console.log("Express server listening on port", port);
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
