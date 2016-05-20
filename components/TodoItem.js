@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import actions from '../redux/actions';
 
 export default class TodoItem extends Component {
-    _setPriority(_id, priority) {
+    _toggleComplete(_id) {
+        this.props.dispatch(actions.toggleCompleteTodo(_id));
+    }
 
+    _setPriority(_id) {
+        this.props.dispatch(actions.setPriorityTodo(_id));
     }
 
     _removeTodo(_id) {
-    }
-
-    _toggleComplete(_id) {
-        this.props.dispatch(actions.toggleCompleteTodo(_id));
+        this.props.dispatch(actions.removeTodo(_id));
     }
 
     _getPriorityColorTriangle(priority) {
@@ -49,8 +50,6 @@ export default class TodoItem extends Component {
         }
     }
 
-
-
     _getPriorityColor(priority, completed) {
         let style = '';
 
@@ -76,7 +75,7 @@ export default class TodoItem extends Component {
 
         return (
             <li className="todo">
-                <div className="priority" onClick={ this._setPriority.bind(this, todo._id, todo.priority) } style={{ backgroundColor: this._getPriorityColor(todo.priority, todo.completed) }}>
+                <div className="priority" onClick={ this._setPriority.bind(this, todo._id) } style={{ backgroundColor: this._getPriorityColor(todo.priority, todo.completed) }}>
                     <div className="tooltip" style={{ backgroundColor: this._getPriorityColor(todo.priority, todo.completed) }}>
                         { this._getPriority(todo.priority) } priority
                         <div className="triangle" style={{ borderColor: this._getPriorityColorTriangle(todo.priority) }}></div>

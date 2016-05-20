@@ -13,11 +13,10 @@ let actions =  {
         }
     },
 
-    setPriorityTodo: function(_id, priority) {
+    setPriorityTodo: function(_id) {
         return {
             type: 'SET_PRIORITY_TODO',
-            _id,
-            priority
+            _id
         }
     },
 

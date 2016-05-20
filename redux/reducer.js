@@ -23,10 +23,18 @@ export default function reducer(state, action) {
             });
             break;
         case 'SET_PRIORITY_TODO':
-
+            return Object.assign({}, state, {
+                todos: state.todos.map((todo) => {
+                    return (todo._id === action._id) ? Object.assign({}, todo, {priority: (todo.priority < 2) ? todo.priority+1 : 0 }) : todo
+                })
+            })
             break;
         case 'REMOVE_TODO':
-
+            return Object.assign({}, state, {
+                todos: state.todos.filter((todo) => {
+                    return todo._id !== action._id
+                })
+            });
             break;
         default:
             return state;
