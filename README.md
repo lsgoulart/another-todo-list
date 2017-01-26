@@ -1,6 +1,6 @@
 # Another TODO list ¬¬
 
-How annoying is TODO lists apps? Yeah, I know. And this is just another of them.
+How annoying are TODO lists apps? Yeah, I know. And this is just another of them.
 
 I made this to learn more about Redux and Webpack.
 Here is the great video series from Kurt Weiberth that I used as reference:
